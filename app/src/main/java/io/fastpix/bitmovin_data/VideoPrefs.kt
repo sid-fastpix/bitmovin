@@ -3,7 +3,6 @@ package io.fastpix.bitmovin_data
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-
 val dummyData = listOf<DummyData>(
     DummyData(
         "ca854fd4-a3d0-4525-bd43-80de50887e1a",
@@ -20,9 +19,8 @@ val dummyData = listOf<DummyData>(
     DummyData(
         "46c09d0c-d97a-44b2-9737-c5e6daf30a41",
         "https://stream.fastpix.io/46c09d0c-d97a-44b2-9737-c5e6daf30a41.m3u8",
-    )
+    ),
 )
-
 
 @Parcelize
 data class DummyData(

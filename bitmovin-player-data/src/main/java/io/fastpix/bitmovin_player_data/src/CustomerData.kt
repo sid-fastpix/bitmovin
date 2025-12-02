@@ -9,5 +9,5 @@ data class CustomerData(
     var workspaceId: String,
     var videoDetails: VideoDataDetails? = null,
     var playerDetails: PlayerDataDetails = PlayerDataDetails("bitmovin-player", "3.+"),
-    var customDataDetails: CustomDataDetails? = null
+    var customDataDetails: CustomDataDetails? = null,
 )
