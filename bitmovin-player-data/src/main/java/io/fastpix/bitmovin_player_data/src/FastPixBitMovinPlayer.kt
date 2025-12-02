@@ -286,98 +286,53 @@ class FastPixBitMovinPlayer(
         return width.toInt()
     }
 
-    override fun videoSourceWidth(): Int? {
-        return videoSourceWidth
-    }
+    override fun videoSourceWidth(): Int? = videoSourceWidth
 
-    override fun videoSourceHeight(): Int? {
-        return videoSourceHeight
-    }
+    override fun videoSourceHeight(): Int? = videoSourceHeight
+    override fun playHeadTime(): Int? = Utils.secondToMs(currentPosition)
 
-    override fun playHeadTime(): Int? {
-        return Utils.secondToMs(currentPosition)
-    }
+    override fun mimeType(): String? = Utils.getMimeTypeFromUrl(player.source?.config?.url)
 
-    override fun mimeType(): String? {
-        return Utils.getMimeTypeFromUrl(player.source?.config?.url)
-    }
+    override fun sourceFps(): String? = null
 
-    override fun sourceFps(): String? {
-        return null
-    }
+    override fun sourceAdvertisedBitrate(): String? = null
 
-    override fun sourceAdvertisedBitrate(): String? {
-        return null
-    }
+    override fun sourceAdvertiseFrameRate(): String? = null
 
-    override fun sourceAdvertiseFrameRate(): String? {
-        return null
-    }
+    override fun sourceDuration(): Int? = Utils.secondToMs(player.duration)
 
-    override fun sourceDuration(): Int? {
-        return Utils.secondToMs(player.duration)
-    }
+    override fun isPause(): Boolean? = player.isPaused
 
-    override fun isPause(): Boolean? {
-        return player.isPaused
-    }
+    override fun isAutoPlay(): Boolean? = player.config.playbackConfig.isAutoplayEnabled
 
-    override fun isAutoPlay(): Boolean? {
-        return player.config.playbackConfig.isAutoplayEnabled
-    }
+    override fun isBuffering(): Boolean? = currentEventState == PlayerEvents.BUFFERING
 
-    override fun isBuffering(): Boolean? {
-        return currentEventState == PlayerEvents.BUFFERING
-    }
+    override fun playerCodec(): String? = null
 
-    override fun playerCodec(): String? {
-        return null
-    }
+    override fun sourceHostName(): String? = null
 
-    override fun sourceHostName(): String? {
-        return null
-    }
+    override fun isLive(): Boolean? = player.isLive
 
-    override fun isLive(): Boolean? {
-        return player.isLive
-    }
-
-    override fun sourceUrl(): String? {
-        return player.source?.config?.url
-    }
+    override fun sourceUrl(): String? = player.source?.config?.url
 
     override fun isFullScreen(): Boolean? {
         val orientation = context.resources.configuration.orientation
         return orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
-    override fun getBandWidthData(): BandwidthModel {
-        return BandwidthModel()
-    }
+    override fun getBandWidthData(): BandwidthModel = BandwidthModel()
 
-    override fun getPlayerError(): ErrorModel {
-        return ErrorModel(errorCode, errorMessage)
-    }
+    override fun getPlayerError(): ErrorModel = ErrorModel(errorCode, errorMessage)
 
-    override fun getVideoCodec(): String? {
-        return null
-    }
+    override fun getVideoCodec(): String? = null
 
-    override fun getSoftwareName(): String? {
-        return "BitMovin"
-    }
+    override fun getSoftwareName(): String? = "BitMovin"
 
-    override fun getSoftwareVersion(): String? {
-        return "3.+"
-    }
+    override fun getSoftwareVersion(): String? = "3.+"
 
-    override fun getFastPixSDKName(): String? {
-        return BitMovinLibraryInfo.SDK_NAME
-    }
+    override fun getFastPixSDKName(): String? = BitMovinLibraryInfo.SDK_NAME
 
-    override fun getFastPixSDKVersion(): String? {
-        return BitMovinLibraryInfo.SDK_VERSION
-    }
+    override fun getFastPixSDKVersion(): String? = BitMovinLibraryInfo.SDK_VERSION
 
     fun release() {
         isReleased = true
