@@ -24,7 +24,7 @@ class FastPixBitMovinPlayer(
     private val playerView: View,
     private val player: Player,
     private val enableLogging: Boolean = false,
-    private val customerData: CustomerData
+    private val customerData: CustomerData,
 ) : PlayerListener {
     private val TAG = "FastPixBitMovinPlayer"
     private lateinit var fastPixDataSDK: FastPixDataSDK
@@ -114,8 +114,6 @@ class FastPixBitMovinPlayer(
             errorMessage = event.message
             dispatchError()
         }
-
-
     }
 
     private fun initializeFastPixDataSdk() {
@@ -127,7 +125,7 @@ class FastPixBitMovinPlayer(
             videoData = customerData.videoDetails,
             playerListener = this,
             enableLogging = enableLogging,
-            customData = customerData.customDataDetails
+            customData = customerData.customDataDetails,
         )
         fastPixDataSDK.initialize(sdkConfiguration, context)
     }
@@ -270,7 +268,6 @@ class FastPixBitMovinPlayer(
             fastPixDataSDK.dispatchEvent(PlayerEventType.play)
         }
     }
-
 
     override fun playerHeight(): Int? {
         val density = context.resources.displayMetrics.density
