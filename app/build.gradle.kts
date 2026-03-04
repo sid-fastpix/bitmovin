@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id ("kotlin-parcelize")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -23,7 +23,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -48,7 +48,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    //bitmovin
+    // bitmovin
     implementation(libs.player)
 
     // Testing
@@ -57,5 +57,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Mux
-    implementation ("com.mux.stats.sdk.muxstats:muxstatssdkbitmovinplayer_r3_11_1:0.5.1")
+    implementation("com.mux.stats.sdk.muxstats:muxstatssdkbitmovinplayer_r3_11_1:0.5.1")
 }

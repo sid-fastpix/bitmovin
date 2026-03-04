@@ -19,7 +19,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -38,9 +38,9 @@ dependencies {
     implementation(libs.material)
 
     // FastPix Core
-    //api(libs.core)
+    // api(libs.core)
 
-    //bitmovin
+    // bitmovin
     api(libs.player)
 
     // Testing

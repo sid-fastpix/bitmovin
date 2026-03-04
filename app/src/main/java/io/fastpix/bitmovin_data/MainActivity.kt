@@ -91,10 +91,10 @@ class MainActivity : AppCompatActivity() {
         val customerData = com.mux.stats.sdk.core.model.CustomerData(
             customerPlayerData,
             customerVideoData,
-            customerViewData
+            customerViewData,
         )
         muxStatsSDKBitmovinPlayer = MuxStatsSDKBitmovinPlayer(
-            this, binding.bitmovinPlayerView, "Player 1", customerData
+            this, binding.bitmovinPlayerView, "Player 1", customerData,
         )
         val size = Point()
         windowManager.defaultDisplay.getSize(size)
@@ -113,7 +113,6 @@ class MainActivity : AppCompatActivity() {
         binding.controlsContainer.visibility = View.GONE
     }
 
-
     private fun toggleControls() {
         if (controlsVisible) {
             hideControls()
@@ -128,15 +127,15 @@ class MainActivity : AppCompatActivity() {
             beaconUrl = "metrix.ninja",
             videoDetails = VideoDataDetails(
                 UUID.randomUUID().toString(),
-                videoModel?.id
-            )
+                videoModel?.id,
+            ),
         )
         bitmovinData = FastPixBitMovinPlayer(
             this,
             binding.bitmovinPlayerView,
             binding.bitmovinPlayerView.player!!,
             enableLogging = true,
-            customerData = customerData
+            customerData = customerData,
         )
     }
 
@@ -163,14 +162,13 @@ class MainActivity : AppCompatActivity() {
                     SourceMetadata(
                         videoId = "android-wizard-Sintel-1763706788214",
                         title = streamTitle,
-                    )
+                    ),
                 ),
             )
 
             player.load(source)
             player.play()
             setupPlayerListeners()
-
         } catch (e: Exception) {
             Log.e("BITMOVIN_ERROR", "Failed to initialize player: ${e.message}", e)
         }
@@ -318,7 +316,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun switchToEpisode(newIndex: Int) {
         if (newIndex < 0 || newIndex >= dummyData.size) {
             Log.e(TAG, "Invalid episode index: $newIndex")
@@ -387,7 +384,7 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.ic_pause
             } else {
                 R.drawable.ic_play_arrow
-            }
+            },
         )
     }
 
